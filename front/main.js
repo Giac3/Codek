@@ -78,32 +78,8 @@ document.getElementById('card').addEventListener("transitionend", () => {
 })
 
 
-const goTranslate = () => {
-    document.getElementById("obj2").style.opacity = "0"
-    document.getElementById("obj3").style.opacity = "0"
-    document.getElementById("obj1").style.zIndex = "1"
-    document.getElementById("obj3").addEventListener("transitionend", () => {
-        document.getElementById("obj1").style.width = "100%"
-        document.getElementById("obj1").style.height = "100%"
-        document.getElementById("obj1").style.top = "0px"
-        document.getElementById("obj1").style.left = "0px"
-        document.getElementById("translate-wrapper").style.display = "block"
-        document.getElementById("obj1").addEventListener("transitionend", () => {
-            document.getElementById("dropdown").style.opacity = "1"
-            document.getElementById("dropdownto").style.opacity = "1"
-            document.getElementById("backBtn").style.opacity  = "1"
-            document.getElementById("fromtext").style.opacity  = "1"
-            document.getElementById("convertButton").style.opacity = "1"
-        })
-    })
-}
 
 
-document.getElementById('obj1').addEventListener("click", () => {
-    document.getElementById("translate-svg").style.opacity = "0"
-    console.log("click")
-    goTranslate()
-})
 
 
 
@@ -155,45 +131,5 @@ document.getElementById("dropimgtocsha").addEventListener("click", () => {
     document.getElementById("to-image").src = document.getElementById("logocsha").src
 })
 
-/*
 
-const leaveTranslate = () => {
-    document.getElementById("obj2").style.display = "block"
-    document.getElementById("obj3").style.display = "block"
-    document.getElementById("translate-wrapper").style.opacity = "0";
-    document.getElementById("translate-svg").style.display = "block"
-    document.getElementById("translate-svg").style.opacity = "1"
-    document.getElementById("translate-wrapper").addEventListener("transitionend", () => {
-        document.getElementById("obj2").style.opacity = "1"
-        document.getElementById("obj3").style.opacity = "1"
-        document.getElementById("obj1").style.width = "300px"
-        document.getElementById("obj1").style.height = "200px"
-        document.getElementById("obj1").style.top = "25%"
-        document.getElementById("obj1").style.left = "10%"
-        document.getElementById("obj1").addEventListener("transitionend", () => {
-            document.getElementById("translate-wrapper").style.display = "none"
-        })
-    })
 
-    document.getElementById("translate-wrapper").removeEventListener("transitionend", () => {
-        document.getElementById("obj2").style.opacity = "1"
-        document.getElementById("obj3").style.opacity = "1"
-        document.getElementById("obj1").style.width = "300px"
-        document.getElementById("obj1").style.height = "200px"
-        document.getElementById("obj1").style.top = "25%"
-        document.getElementById("obj1").style.left = "10%"
-        document.getElementById("obj1").addEventListener("transitionend", () => {
-            document.getElementById("translate-wrapper").style.display = "none"
-        })
-    })
-    document.getElementById("obj1").removeEventListener("transitionend", () => {
-        document.getElementById("translate-wrapper").style.display = "none"
-    })
-    return
-}
-
-document.getElementById("backBtn").addEventListener("click", () => {
-    leaveTranslate()
-})
-
-*/

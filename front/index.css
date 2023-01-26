@@ -155,6 +155,7 @@ body {
 }
 
 .translate-svg {
+    position: absolute;
     opacity: 0;
     margin: auto;
     transition: 1s;
@@ -304,6 +305,7 @@ body {
   }
 
   .convertButton {
+    display: none;
     position: absolute;
     top: 80%;
     border-radius: 12px;
@@ -316,7 +318,9 @@ body {
     font-size: 16px;
     border: none;
     cursor: pointer;
-    transition: 0.5s;
+    transition: 1s;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    opacity 0;
   }
 
   .convertButton:hover {
