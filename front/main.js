@@ -3,7 +3,7 @@ let fromLang = ""
 let toLang = ""
 
 
-// Into Screen
+// Intro Screen
 document.getElementById('path1').addEventListener('animationend', () => {
     document.getElementById("path1").style.transform = "translateX(70px)"
     document.getElementById("path2").style.transform = "translateX(-70px)"
@@ -21,6 +21,14 @@ document.getElementById('path1').addEventListener('animationend', () => {
 
 // Main Page Load
 document.getElementById('card').addEventListener("transitionend", () => {
+    runLoad()
+})
+
+document.getElementById("card").removeEventListener("transitionend", () => {
+    runLoad()
+})
+
+const runLoad = () => {
     document.addEventListener('keyup', event => {
         if (event.code === 'Space') {
             document.getElementById('space').style.transform = "translateY(3px)"
@@ -58,24 +66,56 @@ document.getElementById('card').addEventListener("transitionend", () => {
                                         document.getElementById('obj3').style.boxShadow = "rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px"
                                         document.getElementById('obj3').style.backgroundColor = "#C9D4E7"
                                         document.getElementById('obj1').addEventListener('transitionend', () => {
-                                            document.getElementById("translate-svg").style.opacity = "1"
-                                            
+                                            document.getElementById("translate-svg").style.opacity = "1"                                          
                                         })
-                                    })
-                                })
-                                
-                                
-                            })
-                            
-                        })
-                    })
-                    
+
+                                    }, {once:true})
+                                }, {once:true})
+                            }, {once:true})  
+                        }, {once:true})
+                    })                  
                 })
-                
+
             })
         }
       })
+}
+
+
+document.getElementById("obj1").addEventListener("click", () => {
+    
+    document.getElementById("obj1").style.opacity = "0"
+    document.getElementById("obj2").style.opacity = "0"
+    document.getElementById("obj3").style.opacity = "0"
+    document.getElementById("svg2").style.opacity = "0"
+    document.getElementById("obj3").addEventListener("transitionend", () => {
+        document.getElementById('obj1').style.display = "none"
+        document.body.style.transform = "scale(0.2)" 
+        document.body.addEventListener("transitionend", () => {
+            document.getElementById("circle3").style.scale = "0"
+            document.getElementById("circle3").addEventListener("transitionend", () => {
+                document.body.style.transform = "scale(1)"
+                document.getElementById("translate-wrap").style.display = "block"
+                document.getElementById("backBtn").addEventListener("click", () => {
+                    document.body.style.transform = "scale(0.2)"
+                    document.getElementById("translate-wrap").style.display = "none"
+                    document.body.addEventListener("transitionend", () => {
+                        document.getElementById("circle3").style.scale = "60"
+                        document.getElementById("circle3").addEventListener("transitionend", () => {
+                            document.body.style.transform = "scale(1)"
+                            document.getElementById('obj1').style.display = "grid"
+                            document.getElementById("obj1").style.opacity = "1"
+                            document.getElementById("obj2").style.opacity = "1"
+                            document.getElementById("obj3").style.opacity = "1"
+                            document.getElementById("svg2").style.opacity = "1"
+                        }, {once: true})
+                    }, {once: true})
+                }, {once: true})
+            }, {once: true})
+        }, {once: true})
+    }, {once: true})
 })
+
 
 
 
