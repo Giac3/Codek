@@ -190,7 +190,9 @@ document.getElementById("convertButton").addEventListener("click", () => {
         return
     }
     translationText = document.getElementById("fromtext").value
-
+    document.getElementById("fromtext").style.display = "none"
+    document.getElementById("lds-roller").style.display = "inline-block"
+    document.getElementById("convertButton").style.display = "none"
     apiCall(translationText, fromLang, toLang)
 
 })
@@ -203,5 +205,16 @@ const apiCall = async (text,from,to) => {
     const url = `/api?q=${encode}`
     const res = await fetch(url)
     const data = await res.json()
-    console.log(data)
+    document.getElementById("totext").innerText = data
+    document.getElementById("lds-roller").style.display = "none"
+    document.getElementById("totext").style.display = "block"
+    document.getElementById("goAgainBtn").style.display = "block"
 }
+
+document.getElementById("goAgainBtn").addEventListener("click", () => {
+    document.getElementById("goAgainBtn").style.display = "none"
+    document.getElementById("convertButton").style.display = "block"
+    document.getElementById("totext").style.display = "none"
+    document.getElementById("fromtext").value = ""
+    document.getElementById("fromtext").style.display = "block"
+})
