@@ -69,6 +69,8 @@ const runLoad = () => {
                                         document.getElementById('obj3').style.backgroundColor = "#C9D4E7"
                                         document.getElementById('obj1').addEventListener('transitionend', () => {
                                             document.getElementById("translate-svg").style.opacity = "1"                                          
+                                            document.getElementById("coming-svg").style.opacity = "1"                                          
+                                            document.getElementById("coming-svg2").style.opacity = "1"                                          
                                         })
 
                                     }, {once:true})
@@ -85,7 +87,9 @@ const runLoad = () => {
 
 
 document.getElementById("obj1").addEventListener("click", () => {
-    
+    document.getElementById("jSymb").style.transform = "translateX(0px) translateY(0px)"
+    document.getElementById("pythonSymb").style.transform = "translateX(0px) translateY(0px)"
+
     document.getElementById("obj1").style.opacity = "0"
     document.getElementById("obj2").style.opacity = "0"
     document.getElementById("obj3").style.opacity = "0"
@@ -106,6 +110,8 @@ document.getElementById("obj1").addEventListener("click", () => {
                     document.body.addEventListener("transitionend", () => {
                         document.getElementById("circle3").style.scale = "60"
                         document.getElementById("circle3").addEventListener("transitionend", () => {
+                            document.getElementById("jSymb").style.transform = "translateX(0px) translateY(0px)"
+                            document.getElementById("pythonSymb").style.transform = "translateX(0px) translateY(0px)"
                             document.body.style.transform = "scale(1)"
                             document.getElementById('obj1').style.display = "grid"
                             document.getElementById('obj2').style.display = "grid"
@@ -338,4 +344,31 @@ document.getElementById("goAgainBtn").addEventListener("click", () => {
     document.getElementById("totext").style.display = "none"
     document.getElementById("fromtext").value = ""
     document.getElementById("fromtext").style.display = "block"
+})
+
+
+
+document.getElementById("obj1").addEventListener("mouseover", () => {
+    document.getElementById("obj1").style.transitionDelay = "0s"
+    document.getElementById("obj1").style.boxShadow = "rgba(0, 0, 0, 0.24) 0px 3px 8px"
+
+    //document.getElementById("translate-svg").style.scale = "0.9"
+    document.getElementById("pythonSymb").style.transform = "translateX(80px)"
+    document.getElementById("jSymb").style.transform = "translateX(-80px)"
+    document.getElementById("jSymb").addEventListener("transitionend", () => {
+        document.getElementById("jSymb").style.transform = "translateX(-80px) translateY(-50px)"
+        document.getElementById("pythonSymb").style.transform = "translateX(80px) translateY(50px)"
+    },{once: true})
+    
+})
+
+document.getElementById("obj1").addEventListener("mouseleave", () => {
+    document.getElementById("obj1").style.boxShadow = "rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px"
+    document.getElementById("jSymb").style.transform = "translateX(0px) translateY(-50px)"
+    document.getElementById("pythonSymb").style.transform = "translateX(0px) translateY(50px)"
+    document.getElementById("pythonSymb").addEventListener("transitionend", () => {
+        document.getElementById("jSymb").style.transform = "translateX(0px) translateY(0px)"
+        document.getElementById("pythonSymb").style.transform = "translateX(0px) translateY(0px)"
+    },{once: true})
+    document.getElementById("obj1").style.transitionDelay = "0.2s"
 })
