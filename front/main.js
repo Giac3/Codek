@@ -16,9 +16,9 @@ document.getElementById('path1').addEventListener('animationend', () => {
         document.getElementById("card").style.width = "900px"
         document.getElementById("path1").style.transform = "translateX(0px)"
         document.getElementById("path2").style.transform = "translateX(0px)"
-    })
+    }, {once: true})
 
-})
+}, {once: true})
 
 
 // Main Page Load
@@ -75,12 +75,12 @@ const runLoad = () => {
                                 }, {once:true})
                             }, {once:true})  
                         }, {once:true})
-                    })                  
-                })
+                    }, {once: true})                  
+                }, {once: true})
 
-            })
+            }, {once: true})
         }
-      })
+      }, {once: true})
 }
 
 
@@ -154,6 +154,66 @@ document.getElementById("dropimgfromcsha").addEventListener("click", () => {
     document.getElementById("from-image").src = document.getElementById("logocsha").src
 })
 
+document.getElementById("dropimgfromc").addEventListener("click", () => {
+    fromLang = "C"
+    document.getElementById("from-image").style.display = "block"
+    document.getElementById("from-image").src = document.getElementById("logoc").src
+})
+
+document.getElementById("dropimgfromcplus").addEventListener("click", () => {
+    fromLang = "C++"
+    document.getElementById("from-image").style.display = "block"
+    document.getElementById("from-image").src = document.getElementById("logocplus").src
+})
+
+document.getElementById("dropimgfromdart").addEventListener("click", () => {
+    fromLang = "Dart"
+    document.getElementById("from-image").style.display = "block"
+    document.getElementById("from-image").src = document.getElementById("logodart").src
+})
+
+document.getElementById("dropimgfromgo").addEventListener("click", () => {
+    fromLang = "GO"
+    document.getElementById("from-image").style.display = "block"
+    document.getElementById("from-image").src = document.getElementById("logogo").src
+})
+
+document.getElementById("dropimgfromkotlin").addEventListener("click", () => {
+    fromLang = "Kotlin"
+    document.getElementById("from-image").style.display = "block"
+    document.getElementById("from-image").src = document.getElementById("logokotlin").src
+})
+
+document.getElementById("dropimgfromphp").addEventListener("click", () => {
+    fromLang = "PHP"
+    document.getElementById("from-image").style.display = "block"
+    document.getElementById("from-image").src = document.getElementById("logophp").src
+})
+
+document.getElementById("dropimgfromruby").addEventListener("click", () => {
+    fromLang = "Ruby"
+    document.getElementById("from-image").style.display = "block"
+    document.getElementById("from-image").src = document.getElementById("logoruby").src
+})
+
+document.getElementById("dropimgfromrust").addEventListener("click", () => {
+    fromLang = "Rust"
+    document.getElementById("from-image").style.display = "block"
+    document.getElementById("from-image").src = document.getElementById("logorust").src
+})
+
+document.getElementById("dropimgfromswift").addEventListener("click", () => {
+    fromLang = "Swift"
+    document.getElementById("from-image").style.display = "block"
+    document.getElementById("from-image").src = document.getElementById("logoswift").src
+})
+
+document.getElementById("dropimgfromts").addEventListener("click", () => {
+    fromLang = "TypeScript"
+    document.getElementById("from-image").style.display = "block"
+    document.getElementById("from-image").src = document.getElementById("logots").src
+})
+
 document.getElementById("dropimgtopy").addEventListener("click", () => {
     toLang = "Python"
     document.getElementById("to-image").style.display = "block"
@@ -171,10 +231,71 @@ document.getElementById("dropimgtoja").addEventListener("click", () => {
     document.getElementById("to-image").style.display = "block"
     document.getElementById("to-image").src = document.getElementById("logoja").src
 })
+
 document.getElementById("dropimgtocsha").addEventListener("click", () => {
     toLang = "C#"
     document.getElementById("to-image").style.display = "block"
     document.getElementById("to-image").src = document.getElementById("logocsha").src
+})
+
+document.getElementById("dropimgtoc").addEventListener("click", () => {
+    toLang = "C"
+    document.getElementById("to-image").style.display = "block"
+    document.getElementById("to-image").src = document.getElementById("logoc").src
+})
+
+document.getElementById("dropimgtocplus").addEventListener("click", () => {
+    toLang = "C++"
+    document.getElementById("to-image").style.display = "block"
+    document.getElementById("to-image").src = document.getElementById("logocplus").src
+})
+
+document.getElementById("dropimgtodart").addEventListener("click", () => {
+    toLang = "Dart"
+    document.getElementById("to-image").style.display = "block"
+    document.getElementById("to-image").src = document.getElementById("logodart").src
+})
+
+document.getElementById("dropimgtogo").addEventListener("click", () => {
+    toLang = "GO"
+    document.getElementById("to-image").style.display = "block"
+    document.getElementById("to-image").src = document.getElementById("logogo").src
+})
+
+document.getElementById("dropimgtokotlin").addEventListener("click", () => {
+    toLang = "Kotlin"
+    document.getElementById("to-image").style.display = "block"
+    document.getElementById("to-image").src = document.getElementById("logokotlin").src
+})
+
+document.getElementById("dropimgtophp").addEventListener("click", () => {
+    toLang = "PHP"
+    document.getElementById("to-image").style.display = "block"
+    document.getElementById("to-image").src = document.getElementById("logophp").src
+})
+
+document.getElementById("dropimgtoruby").addEventListener("click", () => {
+    toLang = "Ruby"
+    document.getElementById("to-image").style.display = "block"
+    document.getElementById("to-image").src = document.getElementById("logoruby").src
+})
+
+document.getElementById("dropimgtorust").addEventListener("click", () => {
+    toLang = "Rust"
+    document.getElementById("to-image").style.display = "block"
+    document.getElementById("to-image").src = document.getElementById("logorust").src
+})
+
+document.getElementById("dropimgtoswift").addEventListener("click", () => {
+    toLang = "Swift"
+    document.getElementById("to-image").style.display = "block"
+    document.getElementById("to-image").src = document.getElementById("logoswift").src
+})
+
+document.getElementById("dropimgtots").addEventListener("click", () => {
+    toLang = "TypeScript"
+    document.getElementById("to-image").style.display = "block"
+    document.getElementById("to-image").src = document.getElementById("logots").src
 })
 
 

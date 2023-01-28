@@ -23,18 +23,19 @@ router.get('/', cache('2 minutes'), async (req,res) => {
             ...url.parse(req.url, true).query
         })
         
-
         let prompt = decodeURIComponent(param.get('q'))
+
+
         const apiRes = await openai.createCompletion({
             model: 'code-davinci-002',
             prompt: `${prompt}`,
             temperature: 0.0,
             max_tokens: 1000,
           })
-
+          
           const data = apiRes.data.choices[0].text
-          res.header("Access-Control-Allow-Origin", "*");
 
+          res.header("Access-Control-Allow-Origin", "*");
           res.status(200).json(decodeURIComponent(data))
 
     } catch (error) {

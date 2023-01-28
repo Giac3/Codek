@@ -200,6 +200,7 @@ body {
   }
   
   .dropdown-content {
+    max-height: 400px;
     cursor: pointer;
     transition: 0.5s;
     border-radius: 12px;
@@ -224,6 +225,7 @@ body {
   .dropdown-content a:hover {background-color: #f1f1f1; transition: 0.5s;}
   
   .dropdown:hover .dropdown-content {
+    overflow: scroll;
     transition: 0.5s;
     display: block;
     border-radius: 12px;
@@ -241,6 +243,7 @@ body {
 
 
   .dropdownto:hover .dropdown-content {
+    overflow: scroll;
     transition: 0.5s;
     display: block;
     border-radius: 12px;
@@ -391,6 +394,8 @@ body {
     top: 25%;
     height: 40%;
     transition: 2s;
+    overflow: scroll;
+    overflow-x: hidden;
   }
 
   .from-image {
