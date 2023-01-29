@@ -130,12 +130,6 @@ document.getElementById("obj1").addEventListener("click", () => {
 
 
 
-
-
-
-
-
-
 document.getElementById("dropimgfrompy").addEventListener("click", () => {
     fromLang = "Python"
     document.getElementById("from-image").style.display = "block"
@@ -325,8 +319,7 @@ document.getElementById("convertButton").addEventListener("click", () => {
 })
 
 const apiCall = async (text,from,to) => {
-    let query = `${to}:TOConvert the following code from ${from} to ${to}: \n`  + text
-
+    let query = `#${from} to ${to}: \n${from}: \n${text}\n\n${to}:`
     let encode = encodeURIComponent(query)
 
     const url = `/api?q=${encode}`
@@ -373,4 +366,45 @@ document.getElementById("obj1").addEventListener("mouseleave", () => {
         document.getElementById("pythonSymb").style.transform = "translateX(0px) translateY(0px)"
     },{once: true})
     document.getElementById("obj1").style.transitionDelay = "0.2s"
+})
+
+
+document.getElementById("obj2").addEventListener("click", () => {
+
+    document.getElementById("obj1").style.opacity = "0"
+    document.getElementById("obj2").style.opacity = "0"
+    document.getElementById("obj3").style.opacity = "0"
+    document.getElementById("svg2").style.opacity = "0"
+    document.getElementById("obj3").addEventListener("transitionend", () => {
+        document.getElementById('obj1').style.display = "none"
+        document.getElementById('obj2').style.display = "none"
+        document.getElementById('obj3').style.display = "none"
+        document.body.style.transform = "scale(0.2)" 
+        document.body.addEventListener("transitionend", () => {
+            document.getElementById("circle3").style.scale = "0"
+            document.getElementById("circle2").style.scale = "0"
+            document.getElementById("circle3").addEventListener("transitionend", () => {
+                document.body.style.transform = "scale(1)"
+                document.getElementById("improve-wrap").style.display = "block"
+                document.getElementById("backBtn2").addEventListener("click", () => {
+                    document.body.style.transform = "scale(0.2)"
+                    document.getElementById("improve-wrap").style.display = "none"
+                    document.body.addEventListener("transitionend", () => {
+                        document.getElementById("circle3").style.scale = "60"
+                        document.getElementById("circle2").style.scale = "60"
+                        document.getElementById("circle3").addEventListener("transitionend", () => {
+                            document.body.style.transform = "scale(1)"
+                            document.getElementById('obj1').style.display = "grid"
+                            document.getElementById('obj2').style.display = "grid"
+                            document.getElementById('obj3').style.display = "grid"
+                            document.getElementById("obj1").style.opacity = "1"
+                            document.getElementById("obj2").style.opacity = "1"
+                            document.getElementById("obj3").style.opacity = "1"
+                            document.getElementById("svg2").style.opacity = "1"
+                        }, {once: true})
+                    }, {once: true})
+                }, {once: true})
+            }, {once: true})
+        }, {once: true})
+    }, {once: true})
 })

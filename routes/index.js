@@ -24,29 +24,23 @@ router.get('/', cache('2 minutes'), async (req,res) => {
         })
         
         let prompt = decodeURIComponent(param.get('q'))
-        let splitted = prompt.split(':TO');
-        let language = splitted[0].toLowerCase();
-
+        let splitted = prompt.split('\n');
+        let finalN = splitted[splitted.length-1].toLowerCase();
+        let language  = finalN.split(":")[0]
         const apiRes = await openai.createCompletion({
             model: 'code-davinci-002',
-            prompt: `${splitted[1]}`,
+            prompt: `${prompt}`,
             temperature: 0.0,
-            max_tokens: 1000,
+            max_tokens: 100,
+            top_p: 1.0,
+            frequency_penalty: 0.0,
+            presence_penalty: 0.0,
           })
-          
           const data = apiRes.data.choices[0].text
-          var lines = data.split('\n');
 
-          if (lines[3] === "" ) {
-            lines.splice(0,4);
-          } else {
-            lines.splice(0,2);
-          }
-
-          var newtext = lines.join('\n');
-          html  = hljs.highlight(newtext, {language:`${language}`}).value
+          html  = hljs.highlight(data, {language:`${language}`}).value
           res.header("Access-Control-Allow-Origin", "*");
-          res.status(200).json([decodeURIComponent(newtext), html])
+          res.status(200).json([decodeURIComponent(data), html])
 
     } catch (error) {
         res.status(500).json({ error })
