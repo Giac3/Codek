@@ -333,7 +333,6 @@ const apiCall = async (text,from,to) => {
     const res = await fetch(url)
     const data = await res.json()
     let stringRes = data[0]
-    console.log(stringRes)
     document.getElementById("code").className = `language-${to.toLowerCase()}`
     document.getElementById("code").innerHTML = data[1]
     document.getElementById("lds-roller").style.display = "none"

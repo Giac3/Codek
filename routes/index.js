@@ -35,11 +35,15 @@ router.get('/', cache('2 minutes'), async (req,res) => {
           })
           
           const data = apiRes.data.choices[0].text
-
           var lines = data.split('\n');
-          lines.splice(0,4);
-          var newtext = lines.join('\n');
 
+          if (lines[3] === "" ) {
+            lines.splice(0,4);
+          } else {
+            lines.splice(0,2);
+          }
+
+          var newtext = lines.join('\n');
           html  = hljs.highlight(newtext, {language:`${language}`}).value
           res.header("Access-Control-Allow-Origin", "*");
           res.status(200).json([decodeURIComponent(newtext), html])
