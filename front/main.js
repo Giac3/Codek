@@ -318,6 +318,8 @@ document.getElementById("convertButton").addEventListener("click", () => {
 
 })
 
+let copyText = ""
+
 const apiCall = async (text,from,to) => {
     let query = `#${from} to ${to}: \n${from}: \n${text}\n\n${to}:`
     let encode = encodeURIComponent(query)
@@ -325,7 +327,7 @@ const apiCall = async (text,from,to) => {
     const url = `/api?q=${encode}`
     const res = await fetch(url)
     const data = await res.json()
-    let stringRes = data[0]
+    copyText = data[0]
     document.getElementById("code").className = `language-${to.toLowerCase()}`
     document.getElementById("code").innerHTML = data[1]
     document.getElementById("lds-roller").style.display = "none"
@@ -407,4 +409,14 @@ document.getElementById("obj2").addEventListener("click", () => {
             }, {once: true})
         }, {once: true})
     }, {once: true})
+})
+
+document.getElementById("copyBtn").addEventListener("click", () => {
+    document.getElementById("copy-svg").style.opacity = "0"
+    document.getElementById("tick-svg").style.opacity = "1"
+    navigator.clipboard.writeText(copyText)
+    setTimeout(function(){ 
+        document.getElementById("tick-svg").style.opacity = "0"
+        document.getElementById("copy-svg").style.opacity = "1"
+    }, 3000);
 })

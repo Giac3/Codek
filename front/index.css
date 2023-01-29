@@ -419,6 +419,46 @@ body {
     overflow-x: hidden;
   }
 
+  .copyBtn {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    border-radius: 5px;
+    height: 11%;
+    width: 3%;
+    place-items: center;
+    justify-content: center;
+    display: grid;
+    cursor: pointer;
+    transition: 0.2s;
+    border: none;
+    background-color: #E7DCC9;
+    fill: #C678DC;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  }
+
+  .copyBtn:hover {
+    background-color: #C678DC;
+    fill: #E7DCC9;
+    transition: 0.2s;
+  }
+
+  .copy-svg {
+    scale: 0.4;
+    position: absolute;
+    cursor: pointer;
+    transition: 1s;
+  }
+
+  .tick-svg {
+    opacity: 0;
+    fill: green;
+    scale: 0.4;
+    position: absolute;
+    cursor: pointer;
+    transition: 1s;
+  }
+
   .from-image {
     scale: 1;
     display: none;
