@@ -325,23 +325,26 @@ document.getElementById("convertButton").addEventListener("click", () => {
 })
 
 const apiCall = async (text,from,to) => {
-    let query = `Convert the following code from ${from} to ${to}: \n`  + text
+    let query = `${to}:TOConvert the following code from ${from} to ${to}: \n`  + text
 
     let encode = encodeURIComponent(query)
 
     const url = `/api?q=${encode}`
     const res = await fetch(url)
     const data = await res.json()
-    document.getElementById("totext").innerText = data
+    let stringRes = data[0]
+    console.log(stringRes)
+    document.getElementById("code").className = `language-${to.toLowerCase()}`
+    document.getElementById("code").innerHTML = data[1]
     document.getElementById("lds-roller").style.display = "none"
-    document.getElementById("totext").style.display = "block"
+    document.getElementById("pre-code").style.display = "block"
     document.getElementById("goAgainBtn").style.display = "block"
 }
 
 document.getElementById("goAgainBtn").addEventListener("click", () => {
     document.getElementById("goAgainBtn").style.display = "none"
     document.getElementById("convertButton").style.display = "block"
-    document.getElementById("totext").style.display = "none"
+    document.getElementById("pre-code").style.display = "none"
     document.getElementById("fromtext").value = ""
     document.getElementById("fromtext").style.display = "block"
 })

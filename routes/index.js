@@ -2,7 +2,7 @@ const express = require('express')
 const router = express.Router();
 const url = require('url');
 const apiCache = require('apicache')
-
+const hljs = require('highlight.js');
 
 
 const {OpenAIApi, Configuration } = require('openai')
@@ -24,19 +24,25 @@ router.get('/', cache('2 minutes'), async (req,res) => {
         })
         
         let prompt = decodeURIComponent(param.get('q'))
-
+        let splitted = prompt.split(':TO');
+        let language = splitted[0].toLowerCase();
 
         const apiRes = await openai.createCompletion({
             model: 'code-davinci-002',
-            prompt: `${prompt}`,
+            prompt: `${splitted[1]}`,
             temperature: 0.0,
             max_tokens: 1000,
           })
           
           const data = apiRes.data.choices[0].text
 
+          var lines = data.split('\n');
+          lines.splice(0,4);
+          var newtext = lines.join('\n');
+
+          html  = hljs.highlight(newtext, {language:`${language}`}).value
           res.header("Access-Control-Allow-Origin", "*");
-          res.status(200).json(decodeURIComponent(data))
+          res.status(200).json([decodeURIComponent(newtext), html])
 
     } catch (error) {
         res.status(500).json({ error })
