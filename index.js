@@ -21,6 +21,7 @@ app.set('trust proxy', 1)
 app.use(express.static('front'))
 
 app.use('/api', require('./routes/index.js'))
+app.use('/apiImp', require('./routes/index2.js'))
 
 
 app.use(cors())

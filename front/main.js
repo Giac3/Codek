@@ -4,6 +4,7 @@ let toLang = ""
 
 
 let translationText = ""
+let improveText = ""
 
 // Intro Screen
 document.getElementById('path1').addEventListener('animationend', () => {
@@ -419,4 +420,40 @@ document.getElementById("copyBtn").addEventListener("click", () => {
         document.getElementById("tick-svg").style.opacity = "0"
         document.getElementById("copy-svg").style.opacity = "1"
     }, 3000);
+})
+
+document.getElementById("improveButton").addEventListener("click", () => {
+    if (document.getElementById("fromtext2").value === "") {
+        return
+    }
+    improveText = document.getElementById("fromtext2").value
+    document.getElementById("fromtext2").style.display = "none"
+    document.getElementById("lds-roller2").style.display = "inline-block"
+    document.getElementById("improveButton").style.display = "none"
+    apiCallImp(improveText)
+})
+
+const apiCallImp = async (text) => {
+    let queryImp = `#Bad Code to Improved Code: \nBad Code: \n${text}\n\nImproved Code:`
+    let encodedImp = encodeURIComponent(queryImp)
+    const urlImp = `/apiImp?q=${encodedImp}`
+    const resImp = await fetch(urlImp)
+    const dataImp = await resImp.json()
+    document.getElementById("lds-roller2").style.display = "none"
+    copyText = dataImp[0]
+    document.getElementById("code2").innerHTML = dataImp[1]
+    document.getElementById("lds-roller2").style.display = "none"
+    document.getElementById("code2").className = "language-javascript"
+    document.getElementById("pre-code2").style.display = "block"
+    document.getElementById("goAgainBtn2").style.display = "block"
+}
+
+document.getElementById("goAgainBtn2").addEventListener("click", () => {
+
+    document.getElementById("goAgainBtn2").style.display = "none"
+    document.getElementById("improveButton").style.display = "block"
+    document.getElementById("pre-code2").style.display = "none"
+    document.getElementById("fromtext2").value = ""
+    document.getElementById("fromtext2").style.display = "block"
+
 })
