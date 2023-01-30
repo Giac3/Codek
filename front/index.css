@@ -138,6 +138,19 @@ body {
     cursor: pointer;
 }
 
+.block {
+  opacity: 0;
+  position: absolute;
+  z-index: 1;
+}
+
+.mush {
+  transition: 1s ease-in-out;
+  opacity: 0;
+  position: absolute;
+  bottom: 17%;
+}
+
 .obj3 {
     display: none;
     position: absolute;
@@ -313,6 +326,7 @@ body {
     top: 25%;
     height: 40%;
     transition: 2s;
+    resize: none;
   }
 
   .lds-roller {

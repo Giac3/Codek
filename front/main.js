@@ -70,7 +70,8 @@ const runLoad = () => {
                                         document.getElementById('obj3').style.backgroundColor = "#C9D4E7"
                                         document.getElementById('obj1').addEventListener('transitionend', () => {
                                             document.getElementById("translate-svg").style.opacity = "1"                                          
-                                            document.getElementById("coming-svg").style.opacity = "1"                                          
+                                            document.getElementById("mush").style.opacity = "1"                                          
+                                            document.getElementById("block").style.opacity = "1"                                          
                                             document.getElementById("coming-svg2").style.opacity = "1"                                          
                                         })
 
@@ -373,7 +374,7 @@ document.getElementById("obj1").addEventListener("mouseleave", () => {
 
 
 document.getElementById("obj2").addEventListener("click", () => {
-
+    document.getElementById("mush").style.transform = "translateY(0px)"
     document.getElementById("obj1").style.opacity = "0"
     document.getElementById("obj2").style.opacity = "0"
     document.getElementById("obj3").style.opacity = "0"
@@ -456,4 +457,20 @@ document.getElementById("goAgainBtn2").addEventListener("click", () => {
     document.getElementById("fromtext2").value = ""
     document.getElementById("fromtext2").style.display = "block"
 
+})
+
+document.getElementById("obj2").addEventListener("mouseover", () => {
+    document.getElementById("obj2").style.transitionDelay = "0s"
+    document.getElementById("obj2").style.boxShadow = "rgba(0, 0, 0, 0.24) 0px 3px 8px"
+    document.getElementById("mush").style.transform = "translateY(-70px)"
+    document.getElementById("mush").addEventListener("transitionend", () => {
+        document.getElementById("mush").style.transform = "translateY(0px)"
+    },{once: true})
+    
+})
+
+document.getElementById("obj2").addEventListener("mouseleave", () => {
+    document.getElementById("obj2").style.boxShadow = "rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px"
+    document.getElementById("obj1").style.transitionDelay = "0.2s"
+    document.getElementById("mush").style.transform = "translateY(0px)"
 })
