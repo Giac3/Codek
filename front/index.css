@@ -435,11 +435,11 @@ body {
 
   .copyBtn {
     position: absolute;
-    bottom: 5px;
-    right: 5px;
+    top: 5px;
+    left: 5px;
     border-radius: 5px;
     height: 25px;
-    width: 3%;
+    width: 20px;
     place-items: center;
     justify-content: center;
     display: grid;

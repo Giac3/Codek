@@ -423,6 +423,7 @@ document.getElementById("copyBtn").addEventListener("click", () => {
     }, 3000);
 })
 
+
 document.getElementById("improveButton").addEventListener("click", () => {
     if (document.getElementById("fromtext2").value === "") {
         return
@@ -449,6 +450,16 @@ const apiCallImp = async (text) => {
     document.getElementById("goAgainBtn2").style.display = "block"
 }
 
+document.getElementById("copyBtn2").addEventListener("click", () => {
+    document.getElementById("copy-svg2").style.opacity = "0"
+    document.getElementById("tick-svg2").style.opacity = "1"
+    navigator.clipboard.writeText(copyText)
+    setTimeout(function(){ 
+        document.getElementById("tick-svg2").style.opacity = "0"
+        document.getElementById("copy-svg2").style.opacity = "1"
+    }, 3000);
+})
+
 document.getElementById("goAgainBtn2").addEventListener("click", () => {
 
     document.getElementById("goAgainBtn2").style.display = "none"
@@ -473,4 +484,46 @@ document.getElementById("obj2").addEventListener("mouseleave", () => {
     document.getElementById("obj2").style.boxShadow = "rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px"
     document.getElementById("obj1").style.transitionDelay = "0.2s"
     document.getElementById("mush").style.transform = "translateY(0px)"
+})
+
+document.getElementById("obj3").addEventListener("click", () => {
+    document.getElementById("mush").style.transform = "translateY(0px)"
+    document.getElementById("obj1").style.opacity = "0"
+    document.getElementById("obj2").style.opacity = "0"
+    document.getElementById("obj3").style.opacity = "0"
+    document.getElementById("svg2").style.opacity = "0"
+    document.getElementById("obj3").addEventListener("transitionend", () => {
+        document.getElementById('obj1').style.display = "none"
+        document.getElementById('obj2').style.display = "none"
+        document.getElementById('obj3').style.display = "none"
+        document.body.style.transform = "scale(0.2)" 
+        document.body.addEventListener("transitionend", () => {
+            document.getElementById("circle3").style.scale = "0"
+            document.getElementById("circle2").style.scale = "0"
+            document.getElementById("circle1").style.scale = "0"
+            document.getElementById("circle3").addEventListener("transitionend", () => {
+                document.body.style.transform = "scale(1)"
+                document.getElementById("chat-wrap").style.display = "block"
+                document.getElementById("backBtn3").addEventListener("click", () => {
+                    document.body.style.transform = "scale(0.2)"
+                    document.getElementById("chat-wrap").style.display = "none"
+                    document.body.addEventListener("transitionend", () => {
+                        document.getElementById("circle3").style.scale = "60"
+                        document.getElementById("circle2").style.scale = "60"
+                        document.getElementById("circle1").style.scale = "60"
+                        document.getElementById("circle3").addEventListener("transitionend", () => {
+                            document.body.style.transform = "scale(1)"
+                            document.getElementById('obj1').style.display = "grid"
+                            document.getElementById('obj2').style.display = "grid"
+                            document.getElementById('obj3').style.display = "grid"
+                            document.getElementById("obj1").style.opacity = "1"
+                            document.getElementById("obj2").style.opacity = "1"
+                            document.getElementById("obj3").style.opacity = "1"
+                            document.getElementById("svg2").style.opacity = "1"
+                        }, {once: true})
+                    }, {once: true})
+                }, {once: true})
+            }, {once: true})
+        }, {once: true})
+    }, {once: true})
 })
