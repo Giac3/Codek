@@ -11,7 +11,7 @@ const app = express()
 
 const limiter = rateLimit({
     windowMS: 5*60*1000,
-    max: 100,
+    max: 1000,
 
 })
 
@@ -22,6 +22,7 @@ app.use(express.static('front'))
 
 app.use('/api', require('./routes/index.js'))
 app.use('/apiImp', require('./routes/index2.js'))
+app.use('/apiChat', require('./routes/index3.js'))
 
 
 app.use(cors())
