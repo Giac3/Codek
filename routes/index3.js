@@ -28,14 +28,13 @@ router.get('/', cache('2 minutes'), async (req,res) => {
             model: 'code-davinci-002',
             prompt: `${prompt}`,
             temperature: 0.7,
-            max_tokens: 2000,
+            max_tokens: 500,
             top_p: 1.0,
-            frequency_penalty: 0.0,
-            presence_penalty: 0.0,
+            frequency_penalty: 0.2,
+            presence_penalty: 0.4,
             best_of: 1.0,
           })
           const data = apiRes.data.choices[0].text
-          console.log(data)
           html  = hljs.highlightAuto(data).value
           res.header("Access-Control-Allow-Origin", "*");
           res.status(200).json([decodeURIComponent(data), html])

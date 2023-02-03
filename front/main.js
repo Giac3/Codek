@@ -533,10 +533,9 @@ document.getElementById("chatBtn").addEventListener("click", () => {
     chatInput = document.getElementById("chat-input").value
 
     if (document.getElementById("chat-input").value != "") {
-        let user = document.createElement('p')
-        user.className = "chat-text-user"
-        user.innerText = chatInput
-        document.getElementById("chat").append(user)
+        
+        
+        document.getElementById("chat-q").innerText = chatInput
         document.getElementById("chat-input").value = ""
         apiChat(chatInput)
     }
@@ -548,12 +547,6 @@ const apiChat = async (text) => {
     let urlChat = `/apiChat?q=${encodedChat}`
     let resChat = await fetch(urlChat)
     let dataChat = await resChat.json()
-    let bot  = document.createElement('p')
-    let botpre  = document.createElement('pre')
-    let botcode  = document.createElement('code')
-    botcode.innerHTML = dataChat[1]
-    botpre.append(botcode)
-    bot.append(botpre)
-    bot.className = "chat-text-bot"
-    document.getElementById("chat").append(bot)
+    document.getElementById("pre-code-bot").innerHTML = dataChat[1]
+    document.getElementById("pre-code-bot").style.display = "block"
 }

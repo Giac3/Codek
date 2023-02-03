@@ -227,10 +227,16 @@
         <button id="chatBtn" class="chatBtn">
             <svg id="robot-svg" class="robot-svg" xmlns="http://www.w3.org/2000/svg"  height="48" width="48"><path d="M9 42q-1.25 0-2.125-.875T6 39V18q0-5 3.5-8.5T18 6h12q5 0 8.5 3.5T42 18v21q0 1.25-.875 2.125T39 42Zm0-3h30V18q0-3.75-2.625-6.375T30 9H18q-3.75 0-6.375 2.625T9 18v21Zm9-15.5q-1.45 0-2.475-1.025Q14.5 21.45 14.5 20q0-1.45 1.025-2.475Q16.55 16.5 18 16.5q1.45 0 2.475 1.025Q21.5 18.55 21.5 20q0 1.45-1.025 2.475Q19.45 23.5 18 23.5Zm12 0q-1.45 0-2.475-1.025Q26.5 21.45 26.5 20q0-1.45 1.025-2.475Q28.55 16.5 30 16.5q1.45 0 2.475 1.025Q33.5 18.55 33.5 20q0 1.45-1.025 2.475Q31.45 23.5 30 23.5ZM14.5 39v-5.5q0-1.25.875-2.125T17.5 30.5h13q1.25 0 2.125.875T33.5 33.5V39h-3v-5.5h-5V39h-3v-5.5h-5V39ZM9 39h30H9Z"/></svg>
         </button>
-    
-        <div id="chat" class="chat">
-        </div>
 
+        <p id="chat-q" class="chat-q"></p>
+        <pre class="pre-code-bot" id="pre-code-bot" style="background-color: #00202D; color: white; position: absolute; width: 60%; display: none; left: 20%; top: 20%; padding: 20px; border-radius: 12px;max-height: 40%; overflow: scroll; overflow-x: hidden;">
+            <button id="copyBtn2" class="copyBtn"><svg id="copy-svg2" class="copy-svg" xmlns="http://www.w3.org/2000/svg" height="48" width="48"><path d="M9 43.95q-1.2 0-2.1-.9-.9-.9-.9-2.1V10.8h3v30.15h23.7v3Zm6-6q-1.2 0-2.1-.9-.9-.9-.9-2.1v-28q0-1.2.9-2.1.9-.9 2.1-.9h22q1.2 0 2.1.9.9.9.9 2.1v28q0 1.2-.9 2.1-.9.9-2.1.9Zm0-3h22v-28H15v28Zm0 0v-28 28Z"/></svg>
+                <svg id="tick-svg2" class="tick-svg" xmlns="http://www.w3.org/2000/svg" height="48" width="48"><path d="M21.05 33.1 35.2 18.95l-2.3-2.25-11.85 11.85-6-6-2.25 2.25ZM24 44q-4.1 0-7.75-1.575-3.65-1.575-6.375-4.3-2.725-2.725-4.3-6.375Q4 28.1 4 24q0-4.15 1.575-7.8 1.575-3.65 4.3-6.35 2.725-2.7 6.375-4.275Q19.9 4 24 4q4.15 0 7.8 1.575 3.65 1.575 6.35 4.275 2.7 2.7 4.275 6.35Q44 19.85 44 24q0 4.1-1.575 7.75-1.575 3.65-4.275 6.375t-6.35 4.3Q28.15 44 24 44Zm0-3q7.1 0 12.05-4.975Q41 31.05 41 24q0-7.1-4.95-12.05Q31.1 7 24 7q-7.05 0-12.025 4.95Q7 16.9 7 24q0 7.05 4.975 12.025Q16.95 41 24 41Zm0-17Z"/></svg>
+            </button>
+            <code id="code-bot">
+    
+        </code></pre>
+          
     </div>
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>

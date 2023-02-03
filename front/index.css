@@ -8,6 +8,8 @@ body {
     transition: 1s;
 }
 
+/* Loader ----------------------------------------------------------------------------------------------------*/
+
 .svg {
     scale: 0.5;
 }
@@ -101,6 +103,9 @@ body {
     transition: 1s;
 }
 
+
+/* Main Page ----------------------------------------------------------------------------------------------------*/
+
 .obj1 {
   
     display: none;
@@ -169,14 +174,16 @@ body {
 .chat-input {
   border-radius: 10px;
   position: absolute; 
-  width: 40%;
+  width: 35%;
+  left: 35%;
   height: 20px;
-  bottom: 150px;
+  bottom: 20%;
   padding: 5px;
   background-color: #E7DCC9;
   border: none;
   transition: 1s;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  
 }
 
 .chat-input:hover {
@@ -188,7 +195,7 @@ body {
   background-color: #86D9D9;
   width: 80px;
   height: 40px;
-  bottom: 90px;
+  bottom: 10%;
   fill: white;
   display: flex;
   place-items: center;
@@ -220,47 +227,25 @@ body {
   box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
 }
 
-.chat {
-  top: 50px;
-  width: 450px;
-  height: 700px;
-  background-color: clear;
-  overflow-x: hidden;
-  overflow: auto;
-  padding: 2px;
+.chat-q {
+  background-color: #86D9D9;
+  width: 150px;
+  height: 40px;
+  position: absolute;
+  left: 20px;
+  top: 40%;
+  border-radius: 5px;
+  align-items: center;
+  text-align: center;
+  overflow: overlay;
 }
 
-.chat-text-user {
-  border-radius: 5px;
-  position: relative;
-  width: 430px;
-  min-height: 30px;
-  background-color: #C9D4E7;
-  padding: 2px;
-}
-.chat-text-bot {
-  border-radius: 5px;
-  position: relative;
-  width: 430px;
-  color: white;
-  min-height: 30px;
-  background-color: #00202D;
-  padding: 2px;
+.chat-q::-webkit-scrollbar {
+  display: none;
 }
 
-.botPre {
-  background-color: #00202D; 
-  color: white; 
-  position: absolute; 
-  width: 60%; 
-  display: none; 
-  left: 18%; 
-  top: 30%; 
-  padding: 20px; 
-  border-radius: 12px;
-  max-height: 40%; 
-  overflow: scroll; 
-  overflow-x: hidden;
+.pre-code-bot::-webkit-scrollbar {
+  display: none;
 }
 
 .svg2b1 {
